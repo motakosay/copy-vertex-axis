@@ -3,7 +3,7 @@ bl_info = {
     "author": "Yahia Kamal",
     "version": (1, 0),
     "blender": (3, 0, 0),
-    "location": "Edit Mode > Vertex Menu / Sidebar",
+    "location": "Edit Mode > Vertex Menu",
     "description": "Copy global axis from first selected vertex to second selected",
     "category": "Mesh",
 }
@@ -58,21 +58,8 @@ def menu_func(self, context):
     self.layout.operator(MESH_OT_copy_vertex_axis.bl_idname, text="Copy Vertex Axis (Global)")
 
 
-# Optional: Add to sidebar panel
-class VIEW3D_PT_copy_vertex_axis(bpy.types.Panel):
-    bl_label = "Copy Vertex Axis"
-    bl_idname = "VIEW3D_PT_copy_vertex_axis"
-    bl_space_type = 'VIEW_3D'
-    bl_region_type = 'UI'
-    bl_category = "Tools"
-
-    def draw(self, context):
-        layout = self.layout
-        layout.operator(MESH_OT_copy_vertex_axis.bl_idname)
-
-
 # Register / Unregister
-classes = (MESH_OT_copy_vertex_axis, VIEW3D_PT_copy_vertex_axis)
+classes = (MESH_OT_copy_vertex_axis,)
 
 def register():
     for cls in classes:
